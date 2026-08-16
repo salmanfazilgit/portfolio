@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salman Fazil E K — XML Operator &amp; Pagination Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1B1F;
+    --paper:#FAF8F3;
+    --paper-line:#E4E0D6;
+    --proof-red:#B5372A;
+    --proof-red-soft:#B5372A22;
+    --slate:#5B5B63;
+    --highlight:#F0CB4E;
+    --ff-serif:'Source Serif 4', Georgia, serif;
+    --ff-sans:'Inter', system-ui, sans-serif;
+    --ff-mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--ff-sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--highlight);color:var(--ink);}
+
+  a{color:inherit;}
+
+  .tag-label{
+    font-family:var(--ff-mono);
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+    color:var(--proof-red);
+    text-transform:lowercase;
+    display:inline-flex;
+    gap:0.15em;
+  }
+  .tag-label .b{color:var(--slate);}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:96px 0 64px;
+    border-bottom:1px solid var(--paper-line);
+    position:relative;
+  }
+  .hero-inner{max-width:920px;margin:0 auto;padding:0 28px;}
+  .kicker{
+    font-family:var(--ff-mono);
+    font-size:0.78rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    margin-bottom:22px;
+  }
+  h1.name{
+    font-family:var(--ff-serif);
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 4.1rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    position:relative;
+    display:inline-block;
+  }
+  h1.name .mark{
+    position:absolute;
+    color:var(--proof-red);
+    font-family:var(--ff-mono);
+    font-size:0.34em;
+    font-weight:500;
+  }
+  h1.name .caret{top:-0.5em; right:-0.65em; transform:rotate(8deg);}
+  .role-line{
+    font-family:var(--ff-serif);
+    font-style:italic;
+    font-size:clamp(1.05rem,2.4vw,1.35rem);
+    color:var(--slate);
+    margin-top:18px;
+    max-width:640px;
+  }
+  .role-line .strike{
+    text-decoration: line-through;
+    text-decoration-color: var(--proof-red);
+    text-decoration-thickness: 1.5px;
+    color:#9a9aa0;
+  }
+  .contact-row{
+    display:flex;flex-wrap:wrap;gap:22px;
+    margin-top:34px;
+    font-family:var(--ff-mono);
+    font-size:0.85rem;
+  }
+  .contact-row a{
+    text-decoration:none;
+    border-bottom:1px solid var(--paper-line);
+    padding-bottom:2px;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .contact-row a:hover{border-color:var(--proof-red); color:var(--proof-red);}
+  .location-note{
+    margin-top:12px;
+    font-family:var(--ff-mono);
+    font-size:0.78rem;
+    color:var(--slate);
+  }
+
+  /* margin proof-mark decoration */
+  .margin-marks{
+    position:absolute;
+    right:28px; top:96px;
+    display:none;
+  }
+  @media(min-width:1080px){
+    .margin-marks{display:block; right:calc(50% - 460px - 90px);}
+  }
+  .margin-marks span{
+    display:block;
+    font-family:var(--ff-mono);
+    font-size:0.72rem;
+    color:var(--proof-red);
+    opacity:0.55;
+    margin-bottom:10px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0; border-bottom:1px solid var(--paper-line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:36px;
+  }
+  .section-head h2{
+    font-family:var(--ff-serif);
+    font-weight:600;
+    font-size:1.7rem;
+  }
+  .section-head .tag-label{font-size:0.78rem;}
+
+  /* ---------- ABOUT / STET PARAGRAPH ---------- */
+  .about-text{
+    font-family:var(--ff-serif);
+    font-size:1.12rem;
+    max-width:680px;
+    color:#2b2b30;
+  }
+  .about-text strong{font-weight:600;}
+  .stet{
+    position:relative;
+    padding-left:0;
+  }
+  .stet .stet-mark{
+    display:inline-block;
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    color:var(--proof-red);
+    border:1px solid var(--proof-red);
+    border-radius:3px;
+    padding:1px 5px;
+    margin-left:8px;
+    vertical-align:middle;
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-top:1px dashed var(--paper-line);
+  }
+  .job:first-of-type{border-top:none;}
+  .job-period{
+    font-family:var(--ff-mono);
+    font-size:0.8rem;
+    color:var(--slate);
+    padding-top:3px;
+  }
+  .job-title{
+    font-family:var(--ff-serif);
+    font-weight:600;
+    font-size:1.15rem;
+  }
+  .job-org{
+    color:var(--proof-red);
+    font-family:var(--ff-mono);
+    font-size:0.82rem;
+    margin-top:2px;
+    margin-bottom:10px;
+  }
+  .job-desc{font-size:0.96rem; color:#3a3a40; max-width:560px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:0;
+    border-top:1px solid var(--paper-line);
+    border-left:1px solid var(--paper-line);
+  }
+  .skill-cell{
+    border-right:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+    padding:22px 20px;
+    transition:background .15s ease;
+  }
+  .skill-cell:hover{background:#F1ECDF;}
+  .skill-cell .stag{
+    font-family:var(--ff-mono);
+    font-size:0.7rem;
+    color:var(--slate);
+    text-transform:lowercase;
+    margin-bottom:8px;
+    display:block;
+  }
+  .skill-cell h3{
+    font-family:var(--ff-serif);
+    font-size:1.02rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .skill-cell p{font-size:0.86rem; color:#4a4a50;}
+
+  /* ---------- TOOLS / CLIENTS strip ---------- */
+  .strip{
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .chip{
+    font-family:var(--ff-mono);
+    font-size:0.8rem;
+    padding:6px 12px;
+    border:1px solid var(--paper-line);
+    border-radius:999px;
+    color:#3a3a40;
+  }
+  .chip.accent{
+    border-color:var(--proof-red);
+    color:var(--proof-red);
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;
+    font-family:var(--ff-serif);
+  }
+  .edu-row .deg{font-weight:600; font-size:1.05rem;}
+  .edu-row .school{color:var(--slate); font-style:italic;}
+  .edu-row .yrs{font-family:var(--ff-mono); font-size:0.8rem; color:var(--slate);}
+
+  /* ---------- FOOTER / CTA ---------- */
+  footer{
+    padding:60px 0 90px;
+    text-align:center;
+  }
+  footer .cta{
+    font-family:var(--ff-serif);
+    font-size:1.4rem;
+    margin-bottom:20px;
+  }
+  footer .contact-row{justify-content:center;}
+  footer .colophon{
+    margin-top:50px;
+    font-family:var(--ff-mono);
+    font-size:0.72rem;
+    color:var(--slate);
+    opacity:0.7;
+  }
+
+  @media(max-width:640px){
+    .job{grid-template-columns:1fr; gap:6px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="margin-marks">
+    <span>¶ new graf</span>
+    <span>stet</span>
+    <span>△ align</span>
+    <span>wf</span>
+  </div>
+  <div class="hero-inner">
+    <div class="kicker">&lt;author role="publishing-professional"&gt;</div>
+    <h1 class="name">
+      Salman Fazil E K
+      <span class="mark caret">✓</span>
+    </h1>
+    <p class="role-line">XML Operator &amp; 3B2 Paginator — <span class="strike">just a typesetter</span> the person who makes a manuscript ready for the world.</p>
+    <div class="contact-row">
+      <a href="mailto:salmanfazilphss@gmail.com">salmanfazilphss@gmail.com</a>
+      <a href="tel:+916383447136">+91 63834 47136</a>
+      <a href="https://www.linkedin.com/in/salman-fazil-28308a31a" target="_blank" rel="noopener">linkedin.com/in/salman-fazil</a>
+    </div>
+    <div class="location-note">Chennai, Tamil Nadu, India · open to remote &amp; on-site STM/academic publishing roles</div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="tag-label">&lt;summary&gt;</span>
+    </div>
+    <p class="about-text stet">
+      4+ years turning raw manuscripts into publication-ready output for journals and books — the layer of work between an author's Word file and a reader's finished page. I work across <strong>JATS &amp; DocBook XML</strong>, <strong>3B2/Arbortext Advanced Print Publisher</strong>, and <strong>PDF accessibility</strong> (PDF/UA, WCAG, PAC validation), with production experience on STM publishers including <strong>Elsevier</strong>, <strong>Taylor &amp; Francis</strong>, and <strong>Emerald Publishing</strong>. Currently extending that base into <strong>Adobe InDesign</strong> pagination.
+      <span class="stet-mark">stet</span>
+    </p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="tag-label">&lt;career&gt;</span>
+    </div>
+
+    <div class="job">
+      <div class="job-period">May 2025 –<br>May 2026</div>
+      <div>
+        <div class="job-title">XML Operator</div>
+        <div class="job-org">IntechIQ Innovations</div>
+        <p class="job-desc">Production XML tagging and validation for journal content, working within JATS-based workflows for STM publishing clients.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">Dec 2022 –<br>Apr 2024</div>
+      <div>
+        <div class="job-title">3B2 Paginator</div>
+        <div class="job-org">TNQ Technologies</div>
+        <p class="job-desc">Pagination of journal and book content using 3B2/Arbortext Advanced Print Publisher for academic and STM publishers.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">May 2020 –<br>Feb 2022</div>
+      <div>
+        <div class="job-title">3B2 Paginator</div>
+        <div class="job-org">TNQ Technologies</div>
+        <p class="job-desc">First stint in production pagination — building the foundation in 3B2 scripting and STM composition standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Core Skills</h2>
+      <span class="tag-label">&lt;expertise&gt;</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <span class="stag">jats · docbook</span>
+        <h3>Structured XML</h3>
+        <p>JATS &amp; DocBook XML tagging, validation, and production workflows for journal &amp; book content.</p>
+      </div>
+      <div class="skill-cell">
+        <span class="stag">3b2 · arbortext app</span>
+        <h3>Pagination</h3>
+        <p>Manuscript composition and page layout using 3B2/Arbortext Advanced Print Publisher.</p>
+      </div>
+      <div class="skill-cell">
+        <span class="stag">pdf/ua · wcag · pac</span>
+        <h3>PDF Accessibility</h3>
+        <p>Remediation and validation of PDFs for accessibility compliance against PDF/UA and WCAG standards.</p>
+      </div>
+      <div class="skill-cell">
+        <span class="stag">indesign</span>
+        <h3>InDesign Pagination</h3>
+        <p>Building professional-level Adobe InDesign skills to extend beyond 3B2-based composition.</p>
+      </div>
+      <div class="skill-cell">
+        <span class="stag">latex</span>
+        <h3>Math Typesetting</h3>
+        <p>~1 year hands-on experience typesetting equations in LaTeX within XML production pipelines.</p>
+      </div>
+      <div class="skill-cell">
+        <span class="stag">epsilon · abbyy · infix</span>
+        <h3>Production Tools</h3>
+        <p>Epsilon XML Editor, ABBYY FineReader, and Infix PDF Editor as part of daily production tooling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Publishing Clients</h2>
+      <span class="tag-label">&lt;imprint&gt;</span>
+    </div>
+    <div class="strip">
+      <span class="chip accent">Elsevier</span>
+      <span class="chip accent">Taylor &amp; Francis</span>
+      <span class="chip accent">Emerald Publishing</span>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="tag-label">&lt;credentials&gt;</span>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="deg">Bachelor of Computer Applications (BCA)</div>
+        <div class="school">Bharathidasan University</div>
+      </div>
+      <div class="yrs">2016 – 2019</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="cta">Reviewing a manuscript, a role, or a pagination problem? Let's talk.</p>
+    <div class="contact-row">
+      <a href="mailto:salmanfazilphss@gmail.com">salmanfazilphss@gmail.com</a>
+      <a href="tel:+916383447136">+91 63834 47136</a>
+      <a href="https://www.linkedin.com/in/salman-fazil-28308a31a" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="colophon">&lt;/author&gt; — set in Source Serif 4 &amp; IBM Plex Mono</div>
+  </div>
+</footer>
+
+</body>
+</html>
